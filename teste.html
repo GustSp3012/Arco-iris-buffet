@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teste GSAP</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- AOS CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+
+  <style>
+    body {
+      padding: 50px;
+      text-align: center;
+      background: #f5f5f5;
+    }
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      color: #333;
+    }
+    p {
+      font-size: 1.5rem;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1 id="titulo">Bem-vindo ao Teste GSAP</h1>
+    <p id="descricao">Se você vê esta animação, o GSAP está funcionando!</p>
+    <img src="assets/img/svg/festa.svg" alt="erro" id="img">
+  </div>
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+
+  <script>
+    // Animação do título
+    gsap.from("#titulo", {
+      y: -50,       // inicia 50px acima
+      opacity: 0,   // inicia invisível
+      duration: 1.5,
+      ease: "power2.out"
+    });
+    gsap.to("#img", {
+  y: 70,           // distância que sobe/ desce
+  duration: 3,     // duração da animação
+  ease: "power2.inOut",
+  repeat: -1,      // repete infinitamente
+  yoyo: true       // volta suavemente para posição inicial
+});
+
+    // Animação do parágrafo
+    gsap.from("#descricao", {
+      y: 30,        // inicia 30px abaixo
+      opacity: 0,
+      duration: 1.5,
+      delay: 0.5,   // inicia depois do título
+      ease: "power2.out"
+    });
+  </script>
+
+</body>
+</html>

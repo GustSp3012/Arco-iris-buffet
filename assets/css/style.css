@@ -26,4 +26,16 @@
     color: #22f217;
     text-decoration: none;
   }
+}
+.sidebar-container {
+  display: none;
+}
+
+@media (max-width: 500px) {
+  .sidebar-container {
+    display: block;
+    width: 100%;
+    height: calc(100vh - 60px);
+    background-color: red;
+  }
 }/*# sourceMappingURL=style.css.map */

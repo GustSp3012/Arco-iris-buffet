@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contadores com Reset no Scroll</title>
+
+  <!-- Fonte arredondada e gordinha -->
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      height: 300vh; /* espaço para rolagem */
+      background: #000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Fredoka', sans-serif;
+    }
+    .contador {
+      font-size: 4rem;
+      font-weight: 600;
+      margin: 80px 0;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+    .ativo {
+      opacity: 1;
+    }
+    .inteiro { color: #00d9ff; }   /* azul neon */
+    .porcento { color: #ff2ed1; }  /* rosa neon */
+    .dinheiro { color: #00ff85; }  /* verde neon */
+  </style>
+</head>
+<body>
+
+  <div style="height: 100vh;"></div> <!-- espaço para scroll -->
+
+  <div class="contador inteiro" data-valor="1500" data-tipo="inteiro">0</div>
+  <div class="contador porcento" data-valor="75" data-tipo="percentual">0%</div>
+  <div class="contador dinheiro" data-valor="2500" data-tipo="dinheiro">R$ 0,00</div>
+
+  <script>
+    function formatarValor(valor, tipo) {
+      if (tipo === "dinheiro") {
+        return valor.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+      } else if (tipo === "percentual") {
+        return valor + "%";
+      }
+      return valor.toLocaleString("pt-BR");
+    }
+
+    function animarContador(elemento, duracao = 2000) {
+      let valorFinal = parseInt(elemento.getAttribute("data-valor"));
+      let tipo = elemento.getAttribute("data-tipo");
+      let tempoInicial = null;
+
+      function animar(tempo) {
+        if (!tempoInicial) tempoInicial = tempo;
+        let progresso = (tempo - tempoInicial) / duracao;
+        let valorAtual = Math.floor(progresso * valorFinal);
+
+        if (valorAtual > valorFinal) valorAtual = valorFinal;
+
+        elemento.textContent = formatarValor(valorAtual, tipo);
+
+        if (progresso < 1) {
+          requestAnimationFrame(animar);
+        }
+      }
+
+      requestAnimationFrame(animar);
+    }
+
+    // Observer para ativar e resetar
+    const observador = new IntersectionObserver((entradas) => {
+      entradas.forEach(entrada => {
+        let el = entrada.target;
+        let tipo = el.getAttribute("data-tipo");
+
+        if (entrada.isIntersecting) {
+          el.classList.add("ativo");
+          animarContador(el, 2000);
+        } else {
+          el.classList.remove("ativo");
+          // resetar valor
+          if (tipo === "dinheiro") {
+            el.textContent = "R$ 0,00";
+          } else if (tipo === "percentual") {
+            el.textContent = "0%";
+          } else {
+            el.textContent = "0";
+          }
+        }
+      });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll(".contador").forEach(contador => {
+      observador.observe(contador);
+    });
+  </script>
+  <!-- bolinha -->
+ <canvas id="mainCanvas" width="800" height="400" style="background:#000; display:block; margin:auto;"></canvas>
+
+<script>
+  const canvas = document.getElementById("mainCanvas");
+  const ctx = canvas.getContext("2d");
+
+  // Canvas escondido para desenhar o texto
+  const textCanvas = document.createElement("canvas");
+  const textCtx = textCanvas.getContext("2d");
+  textCanvas.width = canvas.width;
+  textCanvas.height = canvas.height;
+
+  // Desenhar "OLA" no canvas escondido
+  textCtx.fillStyle = "white";
+  textCtx.font = "bold 160px Fredoka, sans-serif";
+  textCtx.textAlign = "center";
+  textCtx.fillText("OLA", textCanvas.width / 2, textCanvas.height / 2 + 50);
+
+  // Captura pixels do texto
+  const imageData = textCtx.getImageData(0, 0, textCanvas.width, textCanvas.height);
+  const pontos = [];
+  for (let y = 0; y < imageData.height; y += 6) { // "6" = espaçamento entre partículas
+    for (let x = 0; x < imageData.width; x += 6) {
+      const index = (y * imageData.width + x) * 4;
+      if (imageData.data[index + 3] > 128) { // pixel visível
+        pontos.push({ x, y });
+      }
+    }
+  }
+
+  // Cria partículas aleatórias
+  const particulas = pontos.map(p => ({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    alvoX: p.x,
+    alvoY: p.y,
+    dx: 0,
+    dy: 0
+  }));
+
+  function animar() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    particulas.forEach(p => {
+      // movimento suave em direção ao alvo
+      p.dx = (p.alvoX - p.x) * 0.05;
+      p.dy = (p.alvoY - p.y) * 0.05;
+      p.x += p.dx;
+      p.y += p.dy;
+
+      // desenhar
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, 2.5, 0, Math.PI * 2);
+      ctx.fillStyle = "#00d9ff"; // cor azul neon
+      ctx.fill();
+    });
+
+    requestAnimationFrame(animar);
+  }
+
+  animar();
+</script>
+
+
+
+
+</body>
+</html>

@@ -1,5 +1,7 @@
 // Imports globais
 // @import "vars";
-@import "global";
+@use "vars";
+@use "global";
 //@import "components/sidebar";
-@import "components/menu_lateral";
+@use "components/menu_lateral";
+@use "components/nav_footer";

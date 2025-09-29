@@ -1,9 +1,99 @@
+@charset "UTF-8";
+:root {
+  --laranja:#f09000;
+  --verde:#22f217;
+  --roxo:#603a96;
+}
+
+@font-face {
+  font-family: "Lucky"; /* nome que você vai usar no CSS */
+  src: url("../fonts/Luckybones-Bold.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+body {
+  width: 100%;
+  height: 100vh;
+}
+
+a {
+  text-decoration: none;
+}
+
+.sidebar-container {
+  display: none;
+}
+
+@media (max-width: 500px) {
+  .sidebar-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    width: 100%;
+    height: 100%;
+    background-image: url("../img/jpg/menu-bg-mobile.jpg");
+    position: fixed;
+    top: 0;
+    left: -100%;
+    transition: left 0.4s ease;
+    z-index: 10;
+  }
+  .sidebar-container .sidebar-header {
+    padding: 10px;
+    padding-top: 10px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+  }
+  .sidebar-container .sidebar-header .sidebar-close {
+    color: white;
+    font-size: 20px;
+  }
+  .sidebar-container .sidebar-logo {
+    width: 170px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .sidebar-container .sidebar-logo img {
+    width: 100%;
+    height: auto;
+  }
+  .sidebar-container .sidebar-nav {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .sidebar-container .sidebar-nav .sidebar-links {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .sidebar-container .sidebar-nav .sidebar-links a {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 10px;
+    font-size: 25px;
+    color: white;
+  }
+  .sidebar-container .sidebar-nav .sidebar-links a span {
+    font-family: "Lucky", sans-serif;
+  }
+  .sidebar-container.active {
+    left: 0;
+  }
+}
 .footer-nav {
   display: none;
 }
@@ -21,21 +111,19 @@
     position: fixed;
     bottom: 0;
     left: 0;
+    z-index: 20;
   }
   .footer-nav a {
     color: #22f217;
     text-decoration: none;
+    /* animação de giro suave */
   }
-}
-.sidebar-container {
-  display: none;
-}
-
-@media (max-width: 500px) {
-  .sidebar-container {
-    display: block;
-    width: 100%;
-    height: calc(100vh - 60px);
-    background-color: red;
+  .footer-nav a #icon-menu {
+    transition: transform 0.4s ease, opacity 0.3s ease;
+    display: inline-block;
+  }
+  .footer-nav a #icon-menu.rotating {
+    transform: rotate(180deg);
+    opacity: 0.5; /* dá sensação de fade suave */
   }
 }/*# sourceMappingURL=style.css.map */

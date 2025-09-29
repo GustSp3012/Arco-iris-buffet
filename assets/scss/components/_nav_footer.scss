@@ -1,0 +1,38 @@
+
+.footer-nav{
+    display: none;
+}
+
+
+@media (max-width:500px){
+    .footer-nav{
+        width: 100%;
+        background-color:#603a96;
+        max-width: 500px;
+        height: 60px;
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+
+        position:fixed;
+        bottom: 0;
+        left: 0;
+        z-index: 20;
+        
+        a{
+            color: #22f217;
+            text-decoration: none;
+            /* animação de giro suave */
+            #icon-menu{
+                transition: transform 0.4s ease, opacity 0.3s ease;
+                display: inline-block;
+                &.rotating{
+                     transform: rotate(180deg);
+                    opacity: 0.5; /* dá sensação de fade suave */
+                }
+            }
+        }
+    }
+}

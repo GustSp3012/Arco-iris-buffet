@@ -1,0 +1,59 @@
+header{
+   background: 
+    linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), /* degrade preto com opacidade */
+    url('../img/jpg/bg-nav.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  
+    width:100%;
+    height:70px;
+    display: flex;
+    justify-content: space-around;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    .logo-nav{
+        margin-top: 10px;
+        width: 100px;
+        height: 100%;
+      
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img{
+            width: auto;
+            height:100px;
+        }
+    }
+    .nav-links{
+       
+        width:900px;
+        height: 100%;
+     
+        display:flex;
+        align-items: center;
+        justify-content: space-between;
+        list-style: none;
+        li{
+            .links{
+                display: flex;
+                font-size: 20px;
+                gap: 10px;
+                align-items: center;
+                color: white;
+                span{
+                    font-family: 'Lucky',sans-serif;
+                }
+               
+            }
+        }
+    }
+    
+}
+@media (max-width:500px){
+    header{
+      display: none;
+    }
+}

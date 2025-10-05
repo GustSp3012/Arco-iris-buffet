@@ -2,6 +2,9 @@
 // @import "vars";
 @use "vars";
 @use "global";
+
 //@import "components/sidebar";
+@use "components/nav_desktop";
 @use "components/menu_lateral";
+@use "pages/home";
 @use "components/nav_footer";

@@ -1,5 +1,4 @@
 $(document).ready(function () {
-  
   const $sidebar = $(".sidebar-container");
 
   // abrir
@@ -26,6 +25,66 @@ $(document).ready(function () {
     ease: "power1.inOut",
     repeat: -1, // repete infinitamente
     yoyo: true, // volta suavemente ao tamanho original
+  });
+
+  // ===============================
+  // 🎬 Controle do vídeo ao clicar
+  // ===============================
+  const $videoBg = $(".video-bg");
+  const $video = $videoBg.find("video")[0];
+  let loopInterval;
+  let somAtivo = false;
+
+  // Função para iniciar loop automático antes do clique
+  function startLoop() {
+    loopInterval = setInterval(() => {
+      if ($video.currentTime >= $video.duration - 0.05) {
+        $video.currentTime = 0;
+        $video.play();
+      }
+    }, 100);
+  }
+
+  startLoop();
+
+  // Função para ativar som e esconder overlay/texto
+  function ativarSom() {
+    clearInterval(loopInterval);
+    $videoBg.addClass("hide-overlay");
+    $video.muted = false;
+    $video.currentTime = 0;
+    $video.play();
+    somAtivo = true;
+  }
+
+  // Função para resetar para o estado inicial
+  function resetVideo() {
+    $videoBg.removeClass("hide-overlay");
+    $video.muted = true;
+    $video.currentTime = 0;
+    $video.play();
+    startLoop();
+    somAtivo = false;
+  }
+
+  // Clique no botão para ativar som
+  $("#ativar-video").on("click", function (e) {
+    e.stopPropagation(); // evita que o clique no botão acione o clique do videoBg
+    ativarSom();
+  });
+
+  // Clique em qualquer área do vídeo quando o som está ativo (exceto no botão)
+  $videoBg.on("click", function (e) {
+    if (somAtivo && !$(e.target).closest("#ativar-video").length) {
+      resetVideo();
+    }
+  });
+
+  // Monitoramento do final do vídeo após ativar som
+  $video.addEventListener("timeupdate", () => {
+    if (somAtivo && $video.currentTime >= $video.duration - 0.05) {
+      resetVideo();
+    }
   });
 });
 

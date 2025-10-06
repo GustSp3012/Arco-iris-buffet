@@ -22,8 +22,18 @@ body {
   height: 100vh;
 }
 
+main {
+  padding-bottom: 60px;
+}
+
 a {
   text-decoration: none;
+}
+
+.poppins-regular {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .animar-letras {
@@ -279,10 +289,111 @@ header .nav-links li .links span {
   background: var(--roxo);
   transform: scale(1.05);
 }
+.hero-home .video-bg .content img {
+  position: relative;
+  z-index: 11;
+  width: 90px;
+}
 .hero-home .video-bg.hide-overlay .overlay,
 .hero-home .video-bg.hide-overlay .content {
   opacity: 0;
   pointer-events: none;
+}
+
+.navegacao-main {
+  width: 100%;
+  height: auto;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../img/jpg/fundoroxo.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.navegacao-main .boxes {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+.navegacao-main .boxes .box {
+  border-radius: 20px;
+  box-shadow: 0 4px 10px var(--roxo);
+  background-color: rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.navegacao-main .boxes .box img {
+  width: 180px;
+}
+.navegacao-main .boxes .box h2 {
+  color: #fff;
+  font-family: "Lucky", sans-serif;
+  font-size: 30px;
+  text-align: center;
+}
+.navegacao-main .boxes .box p {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14px;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+.navegacao-main .boxes .box div {
+  background-color: var(--laranja) !important;
+}
+
+.sobre {
+  width: 100%;
+  height: auto;
+  width: 100%;
+  height: auto;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../img/jpg/bg-sobre.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.sobre .boxes {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+}
+.sobre .boxes .img-sobre {
+  width: 50%;
+}
+.sobre .boxes .img-sobre img {
+  width: 600px;
+  height: 400px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+.sobre .boxes .box {
+  width: 50%;
+  padding-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  gap: 20px;
+}
+.sobre .boxes .box h2 {
+  font-family: "Lucky", sans-serif;
+  font-size: 24px;
+  color: #fff;
+}
+.sobre .boxes .box p {
+  color: #fff;
+  font-size: 17px;
+  text-align: center;
 }
 
 /* Responsivo */
@@ -304,6 +415,53 @@ header .nav-links li .links span {
   }
   .hero-home .content {
     width: 90%;
+  }
+  .navegacao-main {
+    width: 100%;
+    height: auto;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../img/jpg/fundoroxo.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .navegacao-main .boxes {
+    background-color: transparent;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  .navegacao-main .boxes .box {
+    background-color: transparent;
+    border-radius: 0px;
+    box-shadow: none;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .navegacao-main .boxes .box img {
+    width: 180px;
+  }
+  .navegacao-main .boxes .box h2 {
+    color: #fff;
+    font-family: "Lucky", sans-serif;
+    font-size: 30px;
+  }
+  .navegacao-main .boxes .box p {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+  }
+  .navegacao-main .boxes .box div {
+    background-color: var(--laranja) !important;
   }
 }
 .footer-nav {

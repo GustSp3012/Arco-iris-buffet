@@ -26,6 +26,13 @@ $(document).ready(function () {
     repeat: -1, // repete infinitamente
     yoyo: true, // volta suavemente ao tamanho original
   });
+  gsap.to("#botao-saiba", {
+      scale: 1.2,          // aumenta para 110%
+      duration: 0.6,       // 0.6 segundos
+      ease: "power1.inOut",
+      repeat: -1,          // repete infinitamente
+      yoyo: true           // volta suavemente ao tamanho original
+  });
 
   // ===============================
   // 🎬 Controle do vídeo ao clicar

@@ -14,6 +14,8 @@
 body{
     width: 100%;
     height: 100vh;
+     background: 
+    linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4));
 }
 main{
   
@@ -65,6 +67,23 @@ a{
     }
   }
 }
+
+// ANIMAÇÃO DE NUMEROS QUE COTAM ATE O MAX
+    [data-contagem] {
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .ativo {
+      opacity: 1;
+    }
+
+    /* Cores automáticas conforme tipo */
+    [data-contagem-type="int"] { color: var(--laranja); }    /* azul neon */
+    [data-contagem-type="%"] { color: #ff2ed1; }     /* rosa neon */
+    [data-contagem-type="R\$"] { color: #00ff85; }    /* verde neon */
+
+
 @media (max-width:500px){
     // ===== Animação de letras =====
     .animar-letras {

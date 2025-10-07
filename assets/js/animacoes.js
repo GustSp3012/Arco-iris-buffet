@@ -113,6 +113,53 @@ document.addEventListener("DOMContentLoaded", () => {
     resetarContador(el); // define o valor inicial correto
     observador.observe(el);
   });
+
+
+// carousel
+  $(function () {
+    const $cards = $(".card");
+    let index = 0;
+    let autoPlay;
+
+    function updateCards() {
+      $cards.removeClass("prev prev2 active next next2");
+      $cards.eq(index).addClass("active");
+      $cards.eq((index - 1 + $cards.length) % $cards.length).addClass("prev");
+      $cards.eq((index - 2 + $cards.length) % $cards.length).addClass("prev2");
+      $cards.eq((index + 1) % $cards.length).addClass("next");
+      $cards.eq((index + 2) % $cards.length).addClass("next2");
+    }
+
+    function nextCard() {
+      index = (index + 1) % $cards.length;
+      updateCards();
+    }
+
+    function prevCard() {
+      index = (index - 1 + $cards.length) % $cards.length;
+      updateCards();
+    }
+
+    $(".next").click(nextCard);
+    $(".prev").click(prevCard);
+
+    function startAutoPlay() {
+      autoPlay = setInterval(nextCard, 3500);
+    }
+
+    function stopAutoPlay() {
+      clearInterval(autoPlay);
+    }
+
+    $(".carousel").hover(stopAutoPlay, startAutoPlay);
+
+    updateCards();
+    startAutoPlay();
+  });
+
+
+
+  // fim do readLoad
 });
 
 

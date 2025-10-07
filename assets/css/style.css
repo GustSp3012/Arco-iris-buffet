@@ -539,6 +539,157 @@ header .nav-links li .links span {
   box-shadow: 0 4px 10px #000;
 }
 
+.diferencial {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 40px;
+}
+.diferencial .brands {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.diferencial .brands h1 {
+  font-family: var(--lucky);
+  font-size: 60px;
+  font-weight: 600;
+  color: var(--laranja);
+  -webkit-text-stroke: 2px white; /* Largura e cor da borda */
+}
+.diferencial .brands p {
+  color: #fff;
+  font-family: var(--poppins);
+}
+.diferencial .conteudo {
+  width: 100%;
+}
+.diferencial .conteudo .carousel {
+  position: relative;
+  width: 950px;
+  height: 420px;
+  perspective: 1200px;
+  margin: 0 auto;
+  /* 📱 MOBILE MODE */
+}
+.diferencial .conteudo .carousel .card {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 400px;
+  height: 420px;
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  color: var(--laranja);
+  transform-style: preserve-3d;
+  transition: all 0.7s ease;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  cursor: pointer;
+}
+.diferencial .conteudo .carousel .card img {
+  width: 100%;
+  height: 70%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.diferencial .conteudo .carousel .card .card-content {
+  padding: 15px;
+}
+.diferencial .conteudo .carousel .card .card-content h2 {
+  margin: 5px 0;
+  font-size: 20px;
+  font-family: var(--lucky);
+}
+.diferencial .conteudo .carousel .card .card-content p {
+  font-size: 13px;
+  color: var(--roxo);
+}
+.diferencial .conteudo .carousel .card.active {
+  transform: translateX(-50%) scale(1);
+  opacity: 1;
+  z-index: 4;
+}
+.diferencial .conteudo .carousel .card.prev {
+  transform: translateX(-90%) scale(0.9);
+  opacity: 0.7;
+  z-index: 3;
+}
+.diferencial .conteudo .carousel .card.next {
+  transform: translateX(-10%) scale(0.9);
+  opacity: 0.7;
+  z-index: 3;
+}
+.diferencial .conteudo .carousel .card.prev2 {
+  transform: translateX(-130%) scale(0.8);
+  opacity: 0.4;
+  z-index: 2;
+}
+.diferencial .conteudo .carousel .card.next2 {
+  transform: translateX(30%) scale(0.8);
+  opacity: 0.4;
+  z-index: 2;
+}
+.diferencial .conteudo .carousel .nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  color: white;
+  font-size: 35px;
+  padding: 5px 15px;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: 0.3s;
+  z-index: 10;
+}
+.diferencial .conteudo .carousel .nav:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+.diferencial .conteudo .carousel .nav.prev {
+  left: 10px;
+}
+.diferencial .conteudo .carousel .nav.next {
+  right: 10px;
+}
+@media (max-width: 500px) {
+  .diferencial .conteudo .carousel {
+    width: 100%;
+    height: auto;
+    perspective: none;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    display: flex;
+    gap: 10px;
+    padding: 20px;
+  }
+  .diferencial .conteudo .carousel .card {
+    position: relative;
+    flex: 0 0 80%;
+    left: 0;
+    top: 0;
+    transform: none;
+    opacity: 1;
+    z-index: 1;
+    min-width: 260px;
+    max-width: 80%;
+    height: 380px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+  .diferencial .conteudo .carousel .card.active, .diferencial .conteudo .carousel .card.prev, .diferencial .conteudo .carousel .card.next, .diferencial .conteudo .carousel .card.prev2, .diferencial .conteudo .carousel .card.next2 {
+    transform: none;
+    opacity: 1;
+    z-index: 1;
+  }
+  .diferencial .conteudo .carousel .nav {
+    display: none;
+  }
+}
+
 /* Responsivo */
 @media (max-width: 800px) {
   .hero-home {
@@ -753,6 +904,23 @@ header .nav-links li .links span {
     width: 100%;
     border-radius: 10px;
     box-shadow: 0 4px 10px #000;
+  }
+  .diferencial .brands {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .diferencial .brands h1 {
+    font-family: var(--lucky);
+    font-size: 30px;
+    font-weight: 600;
+    color: var(--laranja);
+    -webkit-text-stroke: 2px white; /* Largura e cor da borda */
+  }
+  .diferencial .brands p {
+    color: #fff;
+    font-family: var(--poppins);
   }
 }
 .footer-nav {

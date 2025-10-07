@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carrossel 3D Netflix Style</title>
+<style>
+  body {
+    background: #1e2630;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    font-family: "Poppins", sans-serif;
+  }
+
+  .carousel {
+    position: relative;
+    width: 950px;
+    height: 420px;
+    perspective: 1200px;
+  }
+
+  .card {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 320px;
+    height: 420px;
+    background: #111;
+    border-radius: 16px;
+    overflow: hidden;
+    color: #fff;
+    transform-style: preserve-3d;
+    transition: all 0.7s ease;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  .card img {
+    width: 100%;
+    height: 70%;
+    object-fit: cover;
+  }
+
+  .card-content {
+    padding: 15px;
+  }
+
+  .card h2 {
+    margin: 5px 0;
+    font-size: 20px;
+  }
+
+  .card p {
+    font-size: 13px;
+    color: #ccc;
+  }
+
+  /* Estados visuais */
+  .card.active {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+    z-index: 4;
+  }
+
+  .card.prev {
+    transform: translateX(-90%) scale(0.9);
+    opacity: 0.7;
+    z-index: 3;
+  }
+
+  .card.next {
+    transform: translateX(-10%) scale(0.9);
+    opacity: 0.7;
+    z-index: 3;
+  }
+
+  .card.prev2 {
+    transform: translateX(-130%) scale(0.8);
+    opacity: 0.4;
+    z-index: 2;
+  }
+
+  .card.next2 {
+    transform: translateX(30%) scale(0.8);
+    opacity: 0.4;
+    z-index: 2;
+  }
+
+  /* Botões de navegação */
+  .nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.15);
+    border: none;
+    color: white;
+    font-size: 35px;
+    padding: 5px 15px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: 0.3s;
+    z-index: 10;
+  }
+
+  .nav:hover {
+    background: rgba(255,255,255,0.35);
+  }
+
+  .nav.prev { left: 10px; }
+  .nav.next { right: 10px; }
+
+</style>
+</head>
+<body>
+
+<div class="carousel">
+  <button class="nav prev">&#10094;</button>
+  <button class="nav next">&#10095;</button>
+
+  <div class="card active">
+    <img src="https://i.imgur.com/ZxHqXwN.jpg" alt="">
+    <div class="card-content">
+      <h2>Justice League</h2>
+      <p>Superman e Batman unem forças para salvar o mundo de uma grande ameaça.</p>
+    </div>
+  </div>
+
+  <div class="card next">
+    <img src="https://i.imgur.com/7M4jE9Z.jpg" alt="">
+    <div class="card-content">
+      <h2>Spider-Man</h2>
+      <p>Peter Parker enfrenta novos desafios enquanto tenta ser um herói.</p>
+    </div>
+  </div>
+
+  <div class="card next2">
+    <img src="https://i.imgur.com/z0lSmv2.jpg" alt="">
+    <div class="card-content">
+      <h2>Iron Man</h2>
+      <p>Tony Stark cria uma armadura e se torna o Homem de Ferro.</p>
+    </div>
+  </div>
+
+  <div class="card prev">
+    <img src="https://i.imgur.com/MnBfRCj.jpg" alt="">
+    <div class="card-content">
+      <h2>Guardians of the Galaxy</h2>
+      <p>Um grupo improvável de heróis se une para proteger o universo.</p>
+    </div>
+  </div>
+
+  <div class="card prev2">
+    <img src="https://i.imgur.com/EQvYJsi.jpg" alt="">
+    <div class="card-content">
+      <h2>Black Panther</h2>
+      <p>T’Challa retorna a Wakanda para assumir o trono e defender seu povo.</p>
+    </div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(function(){
+    const $cards = $(".card");
+    let index = 0;
+    let autoPlay;
+
+    function updateCards() {
+      $cards.removeClass("prev prev2 active next next2");
+      $cards.eq(index).addClass("active");
+      $cards.eq((index - 1 + $cards.length) % $cards.length).addClass("prev");
+      $cards.eq((index - 2 + $cards.length) % $cards.length).addClass("prev2");
+      $cards.eq((index + 1) % $cards.length).addClass("next");
+      $cards.eq((index + 2) % $cards.length).addClass("next2");
+    }
+
+    function nextCard() {
+      index = (index + 1) % $cards.length;
+      updateCards();
+    }
+
+    function prevCard() {
+      index = (index - 1 + $cards.length) % $cards.length;
+      updateCards();
+    }
+
+    $(".next").click(nextCard);
+    $(".prev").click(prevCard);
+
+    function startAutoPlay() {
+      autoPlay = setInterval(nextCard, 3500);
+    }
+
+    function stopAutoPlay() {
+      clearInterval(autoPlay);
+    }
+
+    $(".carousel").hover(stopAutoPlay, startAutoPlay);
+
+    updateCards();
+    startAutoPlay();
+  });
+</script>
+
+</body>
+</html>

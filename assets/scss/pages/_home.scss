@@ -105,7 +105,6 @@
       flex-direction: row;
       gap: 10px;
       .box{
-     
         border-radius: 20px;
          box-shadow: 0 4px 10px var(--roxo);
         background-color: rgba($color: #000000, $alpha: 0.1);
@@ -151,6 +150,10 @@
 }
 .sobre{
   width: 100%;
+  background: url('../img/jpg/bg-sobre.jpg');
+   background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   padding: 40px;
   .conteudo{
     width: 100%;
@@ -166,7 +169,7 @@
       h1{
         font-family: 'Lucky',sans-serif;
         font-size: 60px;
-        color: var(--laranja);
+        color: var(--roxo);
         -webkit-text-stroke: 2px #ffffff;  /* Largura e cor da borda */
         // text-stroke: 2px #000;          /* (para compatibilidade futura) */
         
@@ -194,20 +197,28 @@
       .box-textos{
         display: flex;
         flex-direction: column;
+        align-items: center;
         gap: 30px;
         width: 70%;
         .paragrafos{
           width: 100%;
+          background-color: #ffffff92;
+          border-radius: 20px;
           padding: 20px;
           p{
-            color: white;
-            font-family: var(--fredoka);
+            color: var(--roxo);
+            font-family: var(--poppins);
             font-weight: 300;
             font-size: 19px;
+            span{
+              font-family: var(--lucky);
+            }
           }
         }
         .estatisticos{
           width: 100%;
+          
+
           display: flex;
           .left{
             width: 50%;
@@ -218,50 +229,34 @@
             flex-direction: column;
             padding: 4px;
             gap: 40px;
-            .icon-box {
-              width: 200px;                // tamanho do círculo
-              height: 200px;
-              background-color: var(--laranja);
-              border-radius: 50%;          // forma circular
+             .icon-box{
               display: flex;
-              flex-direction: column;
               align-items: center;
-              justify-content: center;
-              padding: 20px;               // espaço interno
-              box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-              text-align: center;          // centraliza texto dentro do círculo
-              gap: 10px;                   // espaço entre número e bloco inferior
-
-              .number {
-                font-size: 30px;
-                font-family: var(--lucky);
-                color: var(--roxo) !important;
+              span{
+                font-size: 40px;
+                margin-right: 10px;
+                color:white
+               
               }
-
-              .icon-text {
+             
+              .icon-text{
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                gap: 8px;
-
-                span {
-                  font-size: 30px;
-                  color: var(--roxo);
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  line-height: 1;
-                }
-
-                p {
+                flex-direction: column;
+                .number{
                   font-family: var(--lucky);
-                  font-size: 20px;
-                  color: white;
-                  margin: 0;
-                  line-height: 1;
+                  font-size: 30px;
+                }
+                p{
+                  font-family: var(--poppins);
+                  font-size: 14px;
+                  color:white;
+                   padding: 0 ;
                 }
               }
             }
+           
             
           }
           .right{
@@ -272,56 +267,46 @@
             padding: 4px;
             align-items: center;
             gap: 40px;
-           .icon-box {
-              width: 200px;                // tamanho do círculo
-              height: 200px;
-              background-color: var(--roxo);
-              border-radius: 50%;          // forma circular
+            .icon-box{
               display: flex;
-              flex-direction: column;
               align-items: center;
-              justify-content: center;
-              padding: 20px;               // espaço interno
-              box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-              text-align: center;          // centraliza texto dentro do círculo
-              gap: 10px;                   // espaço entre número e bloco inferior
-
-              .number {
-                font-size: 30px;
-                font-family: var(--lucky);
+              span{
+                font-size: 40px;
+                margin-right: 10px;
+                color: #fff;
+               
               }
-
-              .icon-text {
+              
+              .icon-text{
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                gap: 8px;
-
-                span {
-                  font-size: 30px;
-                  color: var(--laranja);
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  line-height: 1;
-                }
-
-                p {
+                flex-direction: column;
+                .number{
                   font-family: var(--lucky);
-                  font-size: 20px;
-                  color: white;
-                  margin: 0;
-                  line-height: 1;
+                  font-size: 30px;
+                }
+                p{
+                  font-family: var(--poppins);
+                  font-size: 14px;
+                  color:white;
+                   padding: 0 ;
                 }
               }
             }
+           
             
           }
         }
         a.btn{
-          width: 120px;
-          padding: 10px;
-          border-radius: 30px;
+          
+          background-color:var(--verde);
+          width: 170px;
+          padding: 20px;
+          border-radius: 10px;
+          color: var(--roxo);
+          font-size: 20px;
+          font-family:var(--lucky);
         }
 
       }
@@ -374,17 +359,18 @@
     .boxes{
      
       background-color: transparent;
-      padding-top: 50px;
+      padding-top: 10px;
       padding-bottom: 50px;
       width: 100%;
       display: flex;
       flex-direction: column;
-      gap: 30px;
+      gap: 10px;
       .box{
         background-color: transparent;
         border-radius: 0px;
         box-shadow: none;
         width: 100%;
+        height: auto;
         display: flex;
         flex-direction:column ;
         align-items: center;
@@ -413,4 +399,168 @@
 
     }
   }
+  .conexao{
+    display: none;
+  }
+  .sobre{
+    
+      background: url('../img/jpg/bg-sobre.jpg');
+      padding: 10px;
+      .conteudo{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        .brands{
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          h1{
+            font-family: 'Lucky',sans-serif;
+            font-size: 40px;
+            color: var(--roxo);
+            -webkit-text-stroke: 2px #ffffff;  /* Largura e cor da borda */
+            // text-stroke: 2px #000;          /* (para compatibilidade futura) */
+            
+          }
+          p{
+            font-size: 15px;
+            color: #fff;
+            font-family: 'Poppins',sans-serif;
+          }
+          h2{
+            font-family: 'Poppins',sans-serif;
+            color: #fff;
+            font-size: 20px;
+            -webkit-text-stroke: 1px #00ff1e; 
+            font-family: 'Lucky',sans-serif;
+
+          }
+
+        }
+        .boxes{
+          flex-direction: column-reverse;
+          gap: 10px;
+          .box-textos{
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            width: 100%;
+            .paragrafos{
+              width: 100%;
+              background-color: #ffffff92;
+              border-radius: 10px;
+              padding: 10px;
+              p{
+                color: var(--roxo);
+                font-family: var(--poppins);
+                font-weight: 300;
+                font-size: 16px;
+                span{
+                  font-family: var(--lucky);
+                }
+              }
+            }
+            .estatisticos{
+              width: 100%;
+              display: flex;
+              .left{
+                width: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                flex-direction: column;
+                padding: 4px;
+                gap: 10px;
+                .icon-box{
+                  display: flex;
+                  align-items: start;
+                  span{
+                    font-size: 20px;
+                    margin-right: 0px;
+                    color:white
+                  
+                  }
+                
+                  .icon-text{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-direction: column;
+                    .number{
+                      font-family: var(--lucky);
+                      font-size: 30px;
+                    }
+                    p{
+                      font-family: var(--poppins);
+                      font-size: 14px;
+                      color:white;
+                      padding: 0 ;
+                    }
+                  }
+                }
+              
+                
+              }
+              .right{
+                width: 50%;
+                display: flex;
+                justify-content: space-around;
+                flex-direction: column;
+                padding: 4px;
+                align-items: center;
+                gap: 40px;
+                .icon-box{
+                   display: flex;
+                  align-items: start;
+                  span{
+                    font-size: 20px;
+                    margin-right: 0px;
+                    color:white
+                  
+                  }
+                  
+                  .icon-text{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-direction: column;
+                    .number{
+                      font-family: var(--lucky);
+                      font-size: 30px;
+                    }
+                    p{
+                      font-family: var(--poppins);
+                      font-size: 14px;
+                      color:white;
+                      padding: 0 ;
+                    }
+                  }
+                }
+              
+                
+              }
+            }
+            a.btn{
+              
+            }
+
+          }
+          .box-img{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            img{
+              width: 100%;
+              border-radius: 10px;
+              box-shadow:0 4px 10px #000 ;
+            }
+          }
+        }
+      }
+    }
 }

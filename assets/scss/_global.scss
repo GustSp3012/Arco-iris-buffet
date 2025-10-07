@@ -79,9 +79,9 @@ a{
     }
 
     /* Cores automáticas conforme tipo */
-    [data-contagem-type="int"] { color: var(--laranja); }    /* azul neon */
-    [data-contagem-type="%"] { color: #ff2ed1; }     /* rosa neon */
-    [data-contagem-type="R\$"] { color: #00ff85; }    /* verde neon */
+    [data-contagem-type="int"] { color: white; }    /* azul neon */
+    [data-contagem-type="%"] {  color: white; }     /* rosa neon */
+    [data-contagem-type="R\$"] {  color: white;}    /* verde neon */
 
 
 @media (max-width:500px){

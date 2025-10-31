@@ -123,7 +123,7 @@ a {
   }
 }
 header {
-  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url("../img/jpg/bg-nav.jpg");
+  background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.5)), url("../img/jpg/15.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -326,7 +326,7 @@ header .nav-links li .links span {
 .navegacao-main {
   width: 100%;
   height: auto;
-  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../img/jpg/fundoroxo.jpg");
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../img/webp/fundos/fundo-verde.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -369,7 +369,8 @@ header .nav-links li .links span {
   padding: 20px;
 }
 .navegacao-main .boxes .box div {
-  background-color: var(--laranja) !important;
+  background-color: var(--roxo) !important;
+  border: none !important;
 }
 
 .conexao {

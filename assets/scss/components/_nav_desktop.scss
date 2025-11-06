@@ -48,6 +48,14 @@ header{
                 }
                
             }
+            .whatsapp-link {
+                display: inline-block;
+                transition: transform 0.2s;
+                &:hover{
+                    color: blue;
+                }
+            }
+               
         }
     }
     

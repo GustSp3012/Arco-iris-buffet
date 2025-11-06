@@ -166,6 +166,13 @@ header .nav-links li .links {
 header .nav-links li .links span {
   font-family: "Lucky", sans-serif;
 }
+header .nav-links li .whatsapp-link {
+  display: inline-block;
+  transition: transform 0.2s;
+}
+header .nav-links li .whatsapp-link:hover {
+  color: blue;
+}
 
 @media (max-width: 500px) {
   header {
@@ -542,16 +549,23 @@ header .nav-links li .links span {
 
 .diferencial {
   width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 123, 12, 0.815), rgba(0, 86, 20, 0.541)), url("../img/jpg/fundo-ofc.jpg"); /* imagem */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin-top: 40px;
 }
 .diferencial .brands {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.diferencial .brands .icons img {
+  width: 80px;
 }
 .diferencial .brands h1 {
   font-family: var(--lucky);
@@ -691,6 +705,95 @@ header .nav-links li .links span {
   }
 }
 
+.localizacao {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+}
+.localizacao .brands {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.localizacao .brands .icons {
+  display: flex;
+}
+.localizacao .brands .icons img {
+  width: 80px;
+}
+.localizacao .brands h1 {
+  font-size: 50px;
+  font-family: var(--lucky);
+  color: var(--roxo);
+  -webkit-text-stroke: 1px white; /* Largura e cor da borda */
+}
+.localizacao .brands p {
+  font-family: var(--poppins);
+  font-size: 14px;
+  color: white;
+}
+.localizacao .content {
+  display: flex;
+  width: 100%;
+}
+.localizacao .content .text-box {
+  width: 50%;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  padding: 10px;
+}
+.localizacao .content .text-box .card {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border-radius: 20px;
+}
+.localizacao .content .text-box .card .texts {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.localizacao .content .text-box .card .texts img {
+  width: 110px;
+  margin-right: 10px;
+}
+.localizacao .content .text-box .card .texts p {
+  font-family: var(--poppins);
+  font-size: 14px;
+}
+.localizacao .content .mapa-card {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.localizacao .content .mapa-card h2 {
+  font-family: var(--lucky);
+  color: var(--roxo);
+}
+.localizacao .content .mapa-card iframe {
+  width: 100%;
+  height: 400px;
+  border: none;
+  border-radius: 16px 16px 0 0;
+}
+.localizacao .content .mapa-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
 /* Responsivo */
 @media (max-width: 800px) {
   .hero-home {
@@ -714,7 +817,7 @@ header .nav-links li .links span {
   .navegacao-main {
     width: 100%;
     height: auto;
-    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../img/jpg/fundoroxo.jpg");
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../img/webp/fundos/fundo-verde.webp");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -923,6 +1026,31 @@ header .nav-links li .links span {
     color: #fff;
     font-family: var(--poppins);
   }
+  .localizacao {
+    padding: 10px;
+    margin: 0;
+  }
+  .localizacao .brands .icons img {
+    width: 60px;
+  }
+  .localizacao .brands h1 {
+    font-size: 30px;
+  }
+  .localizacao .brands p {
+    font-size: 12px;
+  }
+  .localizacao .content {
+    flex-direction: column-reverse;
+  }
+  .localizacao .content .text-box {
+    width: 100%;
+  }
+  .localizacao .content .text-box .card .texts p {
+    font-size: 13px;
+  }
+  .localizacao .content .mapa-card {
+    width: 100%;
+  }
 }
 .footer-nav {
   display: none;
@@ -931,7 +1059,7 @@ header .nav-links li .links span {
 @media (max-width: 500px) {
   .footer-nav {
     width: 100%;
-    background-color: #603a96;
+    background-color: rgb(0, 141, 0);
     max-width: 500px;
     height: 60px;
     display: flex;
